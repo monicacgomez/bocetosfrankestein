@@ -1,0 +1,37 @@
+<h1>Listado de apuestas</h1>
+<div class="container">
+    <button class="btn btn-primary"
+            (click)="insertarApuesta()">
+        Nueva apuesta
+    </button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Resultado</th>
+                <th>Fecha</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (apuesta of apuestas; track apuesta.idApuesta) {
+                <tr>
+                    <td>{{apuesta.idApuesta}}</td>
+                    <td>{{apuesta.usuario}}</td>
+                    <td>{{apuesta.resultado}}</td>
+                    <td>{{apuesta.fecha}}</td>
+                    <td>
+                        <button class="btn btn-danger"
+                                (click)="eliminarApuesta(apuesta.idApuesta)">
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

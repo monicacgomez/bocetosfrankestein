@@ -1,0 +1,31 @@
+<h1>Equipos del clásico</h1>
+
+<div class="container">
+
+    <!-- 1. MOSTRAMOS LOS EQUIPOS -->
+    @for (equipo of equipos; track equipo.idEquipo) {
+        <div class="card mb-3">
+            <div class="card-body">
+                <h3>{{equipo.nombre}}</h3>
+                <img [src]="equipo.imagen" width="120"/>
+                <a [routerLink]="['/equipo', equipo.idEquipo]">
+                    Ver detalles
+                </a>
+            </div>
+        </div>
+    }
+
+    <!-- 2. MOSTRAMOS EL BUSCADOR -->
+    <app-buscador-component
+        (buscarNombre)="nombre = $event"
+        (buscarEquipo)="idEquipo = $event">
+    </app-buscador-component>
+
+
+    <!-- 3. MOSTRAMOS LOS JUGADORES -->
+    <app-jugadores-component
+        [nombre]="nombre"
+        [idEquipo]="idEquipo">
+    </app-jugadores-component>
+
+</div>

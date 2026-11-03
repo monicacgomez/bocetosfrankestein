@@ -1,0 +1,31 @@
+<h1>Jugadores</h1>
+
+<div class="container">
+    <button class="btn btn-secondary mb-3"
+            (click)="mostrarTodos()">
+        Mostrar todos
+    </button>
+
+    @if (jugadores.length > 0) {
+        @for (jugador of jugadores; track jugador.idJugador) {
+            <div class="card mb-3">
+                <div class="card-body">
+
+                    <h2>{{ jugador.nombre }}</h2>
+
+                    <img [src]="jugador.imagen" width="120"/>
+
+                    <p>Posición: {{ jugador.posicion }}</p>
+                    <p>País: {{ jugador.pais }}</p>
+
+                    <a [routerLink]="['/jugador', jugador.idJugador]"
+                       class="btn btn-primary">
+                        Ver detalles
+                    </a>
+                </div>
+            </div>
+        }
+    } @else {
+        <p>No se han encontrado jugadores.</p>
+    }
+</div>

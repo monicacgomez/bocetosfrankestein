@@ -1,0 +1,30 @@
+<h1>Detalles del jugador</h1>
+<div class="container">
+    @if (jugador) {
+        <div class="card">
+            <div class="card-body">
+                <h2>{{ jugador.nombre }}</h2>
+                <img [src]="jugador.imagen" width="180"/>
+                <hr/>
+
+                <p><strong>Posición:</strong> {{ jugador.posicion }}</p>
+                <p><strong>País:</strong> {{ jugador.pais }}</p>
+                <p><strong>Fecha de nacimiento:</strong>
+                    {{ jugador.fechaNacimiento }}
+                </p>
+
+                <p><strong>ID del equipo:</strong>
+                    {{ jugador.idEquipo }}
+                </p>
+
+                <a routerLink="/" class="btn btn-secondary">
+                    Volver a los equipos
+                </a>
+            </div>
+        </div>
+    } @else if (error) {
+        <p class="text-danger">{{ error }}</p>
+    } @else {
+        <p>Cargando datos del jugador...</p>
+    }
+</div>

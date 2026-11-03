@@ -1,0 +1,26 @@
+<h1>Detalles del equipo</h1>
+<div class="container">
+
+    @if (equipo) {
+        <div class="card">
+            <div class="card-body">
+                <h2>{{ equipo.nombre }}</h2>
+                <img [src]="equipo.imagen" width="150"/>
+                <p>{{ equipo.descripcion }}</p>
+                <p>Champions: {{ equipo.champions }}</p>
+                <p>Finalista: {{ equipo.finalista }}</p>
+                <a [href]="equipo.web" target="_blank">
+                    Página web
+                </a>
+                <br/><br/>
+                <button class="btn btn-primary"
+                        (click)="verJugadores()">
+                    Ver jugadores
+                </button>
+            </div>
+        </div>
+    } @else {
+        <p>Cargando información del equipo...</p>
+    }
+
+</div>

@@ -1,0 +1,36 @@
+<h1>Nueva apuesta</h1>
+<div class="container">
+
+    <form (ngSubmit)="insertarApuesta()">
+        <div class="mb-3">
+            <label>Usuario</label>
+            <input type="text"
+                   class="form-control"
+                   name="usuario"
+                   [(ngModel)]="usuario"
+                   required/>
+        </div>
+
+        <div class="mb-3">
+            <label>Resultado</label>
+            <input type="text"
+                   class="form-control"
+                   name="resultado"
+                   [(ngModel)]="resultado"
+                   required/>
+        </div>
+
+        <div class="mb-3">
+            <label>Fecha</label>
+            <input type="date"
+                   class="form-control"
+                   name="fecha"
+                   [(ngModel)]="fecha"
+                   required/>
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Guardar apuesta
+        </button>
+    </form>
+</div>

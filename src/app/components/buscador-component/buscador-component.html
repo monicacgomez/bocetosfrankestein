@@ -1,0 +1,43 @@
+<h2>Buscar jugadores</h2>
+
+<!-- Selección de equipo -->
+
+<select
+    class="form-select"
+    [(ngModel)]="idEquipo"
+    (change)="seleccionarEquipo()">
+
+    <option value="">Selecciona equipo</option>
+
+    @for (equipo of equipos; track equipo) {
+
+        <option [ngValue]="equipo.idEquipo">
+            {{equipo.nombre}}
+        </option>
+
+    }
+
+</select>
+
+<!-- Búsqueda por nombre -->
+
+<input
+    class="form-control mt-3"
+    [(ngModel)]="nombre"
+    placeholder="Nombre del jugador"/>
+
+<button
+    class="btn btn-primary mt-2"
+    (click)="buscarPorNombre()">
+
+    Buscar nombre
+
+</button>
+
+<button
+    class="btn btn-secondary mt-2"
+    (click)="buscarEquipo.emit(0)">
+
+    Mostrar todos
+
+</button>

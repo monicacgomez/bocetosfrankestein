@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ApuestasComponent } from './apuestas-component';
+
+describe('ApuestasComponent', () => {
+  let component: ApuestasComponent;
+  let fixture: ComponentFixture<ApuestasComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ApuestasComponent],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(ApuestasComponent);
+    component = fixture.componentInstance;
+    await fixture.whenStable();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { JugadoresComponent } from './jugadores-component';
+
+describe('JugadoresComponent', () => {
+  let component: JugadoresComponent;
+  let fixture: ComponentFixture<JugadoresComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [JugadoresComponent],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(JugadoresComponent);
+    component = fixture.componentInstance;
+    await fixture.whenStable();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
