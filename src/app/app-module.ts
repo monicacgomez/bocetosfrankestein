@@ -1,46 +1,72 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 
 import { HomeComponent } from './components/home-component/home-component';
-import { EquipoComponent } from './components/equipo-component/equipo-component';
-import { JugadoresComponent } from './components/jugadores-component/jugadores-component';
-import { JugadorDetallesComponent } from './components/jugador-detalles-component/jugador-detalles-component';
-import { ApuestasComponent } from './components/apuestas-component/apuestas-component';
-import { InsertarApuestaComponent } from './components/insertar-apuesta-component/insertar-apuesta-component';
-import { BuscadorComponent } from './components/buscador-component/buscador-component';
+import { LoginComponent } from './components/login-component/login-component';
+import { CreateComponent } from './components/create-component/create-component';
+import { DetailsComponent } from './components/details-component/details-component';
+import { UpdateComponent } from './components/update-component/update-component';
+import { SubordinadosComponent } from './components/subordinados-component/subordinados-component';
+import { InformesPdfComponent } from './components/informes-pdf-component/informes-pdf-component';
 
-import { provideHttpClient } from '@angular/common/http';
-import { ServicePorra } from './services/service.porra';
-import { CommonModule } from '@angular/common';
+import { AuthGuard } from './guards/auth.guard';
+
+import { authTokenInterceptor } from './interceptors/auth.token.interceptor';
+import { errorInterceptor } from './interceptors/error.interceptor';
+
+import { ServiceDepartamentos } from './services/service.departamentos';
+import { ServiceEmpleados } from './services/service.empleados';
+
+import { provideToastService } from 'ngx-yet-another-toast-library';
 
 @NgModule({
-  declarations: [
-    App,
-    HomeComponent,
-    EquipoComponent,
-    JugadoresComponent,
-    JugadorDetallesComponent,
-    ApuestasComponent,
-    InsertarApuestaComponent,
-    BuscadorComponent,
-  ],
 
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    CommonModule
-  ],
+    declarations: [
+        App,
+        HomeComponent,
+        LoginComponent,
+        CreateComponent,
+        DetailsComponent,
+        UpdateComponent,
+        SubordinadosComponent,
+        InformesPdfComponent
+    ],
 
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideHttpClient(),
-    ServicePorra
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        CommonModule
+    ],
 
-  bootstrap: [App],
+    providers: [
+
+        provideBrowserGlobalErrorListeners(),
+
+        provideHttpClient(
+            withInterceptors([
+                authTokenInterceptor,
+                errorInterceptor
+            ])
+        ),
+
+        provideToastService(),
+
+        ServiceDepartamentos,
+        ServiceEmpleados,
+
+        AuthGuard
+
+    ],
+
+    bootstrap: [App]
+
 })
 export class AppModule {}

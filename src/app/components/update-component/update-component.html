@@ -1,0 +1,47 @@
+<h1>Modificar departamento</h1>
+
+<p>{{mensaje}}</p>
+
+@if (departamento) {
+
+    <form (submit)="$event.preventDefault()">
+
+        <label>Id departamento:</label>
+
+        <input
+            type="number"
+            name="cajaid"
+            #cajaid
+            class="form-control"
+            [value]="departamento.numero"
+            disabled
+        />
+
+        <label>Nombre:</label>
+
+        <input
+            type="text"
+            name="cajanombre"
+            #cajanombre
+            class="form-control"
+            [value]="departamento.nombre"
+        />
+
+        <label>Localidad:</label>
+
+        <input
+            type="text"
+            name="cajalocalidad"
+            #cajalocalidad
+            class="form-control"
+            [value]="departamento.localidad"
+        />
+
+        <br/>
+
+        <button type="button" class="btn btn-warning" (click)="updateDepartamento()">
+            Actualizar
+        </button>
+
+    </form>
+}

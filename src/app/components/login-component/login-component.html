@@ -1,0 +1,31 @@
+<h1>Iniciar sesión</h1>
+
+<form #formlogin="ngForm">
+
+    <label>Nombre de usuario:</label>
+
+    <input
+        type="text"
+        name="cajauser"
+        #cajauser
+        class="form-control"
+    />
+
+    <label>Contraseña:</label>
+
+    <input
+        type="password"
+        name="cajapassword"
+        #cajapassword
+        class="form-control"
+    />
+
+    <br/>
+
+    <button type="button" class="btn btn-warning" (click)="logInEmpleado()">
+        Entrar
+    </button>
+
+</form>
+
+<h3>{{mensaje}}</h3>

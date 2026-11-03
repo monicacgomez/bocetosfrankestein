@@ -1,0 +1,20 @@
+<h1>Crear departamento</h1>
+
+<h2>{{mensaje}}</h2>
+
+<form (submit)="$event.preventDefault()">
+
+    <label>Id departamento:</label>
+    <input type="number" name="cajaid" #cajaid class="form-control"/>
+
+    <label>Nombre:</label>
+    <input type="text" name="cajanombre" #cajanombre class="form-control"/>
+
+    <label>Localidad:</label>
+    <input type="text" name="cajalocalidad" #cajalocalidad class="form-control"/>
+
+    <button type="button" class="btn btn-info" (click)="insertDepartamento()">
+        Crear
+    </button>
+
+</form>

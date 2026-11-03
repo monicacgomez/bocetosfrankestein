@@ -1,0 +1,36 @@
+<h1>Detalles del departamento</h1>
+
+<p>
+    <a [routerLink]="['/']">Volver al inicio</a>
+</p>
+
+@if (departamento) {
+
+    <ul class="list-group">
+
+        <li class="list-group-item">
+            Número: {{departamento.numero}}
+        </li>
+
+        <li class="list-group-item">
+            Nombre: {{departamento.nombre}}
+        </li>
+
+        <li class="list-group-item">
+            Localidad: {{departamento.localidad}}
+        </li>
+
+    </ul>
+
+    <br/>
+
+    <button class="btn btn-warning" (click)="modificarDepartamento()">
+        Modificar
+    </button>
+
+    <button class="btn btn-danger" (click)="eliminarDepartamento()">
+        Eliminar
+    </button>
+}
+
+<p>{{mensaje}}</p>

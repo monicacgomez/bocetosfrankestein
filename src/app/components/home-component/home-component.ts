@@ -1,7 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
-
-import { Equipo } from "../../models/equipo";
-import { ServicePorra } from "../../services/service.porra";
+import { Departamento } from "../../models/departamento";
+import { ServiceDepartamentos } from "../../services/service.departamentos";
 
 @Component({
     selector: "app-home-component",
@@ -11,21 +10,17 @@ import { ServicePorra } from "../../services/service.porra";
 
 export class HomeComponent implements OnInit {
 
-    public equipos!: Array<Equipo>;
-
-    // Valores que recibimos del buscador.
-    public nombre?: string;
-    public idEquipo?: number;
+    public departamentos!: Array<Departamento>;
 
     constructor(
-        private _service: ServicePorra,
+        private _service: ServiceDepartamentos,
         private _cdr: ChangeDetectorRef
     ) {}
 
     async ngOnInit(): Promise<void> {
 
-        // Recuperamos los equipos de la API.
-        this.equipos = await this._service.getEquiposAsync();
+        // Recuperamos los departamentos de la API.
+        this.departamentos = await this._service.getDepartamentosAsync();
 
         this._cdr.detectChanges();
     }
